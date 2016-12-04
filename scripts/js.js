@@ -49,21 +49,8 @@ module.exports = function (robot) {
     res.reply("Not sure but I think it is " + answer);
   });
 
-  // robot.hear(/I like pie/i, function (res){
-  //   res.emote "makes a freshly baked pie"
-  // });
+  robot.hear(/drink protein/i, function (res){
+    res.emote("Shake it shake it!");
+  });
 
 };
-
-
-// module.exports = (robot) ->
-
-//   robot.hear /start workout/i, (res) ->
-//     res.send "Yeah, bring it on!"
-
-//   robot.respond /next exercise is (.*)/i, (res) ->
-//     exerciseType = res.match[1]
-//     if exerciseType is "benchpress"
-//       res.reply "You did benchpress yesterday. Do squat!"
-//     else
-//       res.reply "Ok let's start #{exerciseType}!"
