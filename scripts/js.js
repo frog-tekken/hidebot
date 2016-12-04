@@ -34,6 +34,6 @@ module.exports = function (robot) {
         break;
     }
 
-    res.reply("The anwer is " + answer + " だろ！？");
+    res.reply("Not sure but I think it is " + answer);
   })
 };
