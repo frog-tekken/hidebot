@@ -4,7 +4,7 @@ module.exports = function (robot) {
     res.send("Yeah, bring it on!:muscle:");
   });
 
-  robot.respond(/next exercise is (.*)/i, function (res) {
+  robot.respond(/Let's do (.*)/i, function (res) {
     var exerciseType = res.match[1];
 
     switch(exerciseType){
@@ -12,7 +12,7 @@ module.exports = function (robot) {
         res.reply("Don't come back until run 10 miles!");
         break;
       case "deadlift":
-        res.reply("Be careful not to hurt your back!");
+        res.reply("Be careful do not to hurt your back!");
         break;
       case "benchpress":
         res.reply("Ok, but not forget your legs too.");
@@ -49,9 +49,21 @@ module.exports = function (robot) {
     res.reply("Not sure but I think it is " + answer);
   });
 
-  robot.hear(/I like pie/i, function (res){
-    res.emote "makes a freshly baked pie"
-  });
-
+  // robot.hear(/I like pie/i, function (res){
+  //   res.emote "makes a freshly baked pie"
+  // });
 
 };
+
+
+// module.exports = (robot) ->
+
+//   robot.hear /start workout/i, (res) ->
+//     res.send "Yeah, bring it on!"
+
+//   robot.respond /next exercise is (.*)/i, (res) ->
+//     exerciseType = res.match[1]
+//     if exerciseType is "benchpress"
+//       res.reply "You did benchpress yesterday. Do squat!"
+//     else
+//       res.reply "Ok let's start #{exerciseType}!"
