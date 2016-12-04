@@ -1,15 +1,27 @@
 module.exports = function (robot) {
+
   robot.hear(/start workout/i, function (res) {
-    res.send("Yeah, bring it on!");
+    res.send("Yeah, bring it on!:muscle:");
   });
 
   robot.respond(/next exercise is (.*)/i, function (res) {
     var exerciseType = res.match[1];
 
-    if (doorType == "benchpress") {
-      res.reply("You did benchpress yesterday. Do squat!");
-    } else {
-      res.reply("Ok let's start " + exerciseType + " !");
+    switch(exerciseType){
+      case "run":
+        res.reply("Don't come back until run 10 miles!");
+        break;
+      case "deadlift":
+        res.reply("Be careful not to hurt your back!");
+        break;
+      case "benchpress":
+        res.reply("Ok, but not forget your legs too.");
+        break;
+      case "squat":
+        res.reply("Good choice! Do it at least 5 sets!");
+        break;
+      default:
+        res.reply("Ok let's start " + exerciseType + " !");
     }
   });
 
@@ -35,5 +47,11 @@ module.exports = function (robot) {
     }
 
     res.reply("Not sure but I think it is " + answer);
-  })
+  });
+
+  robot.hear(/I like pie/i, function (res){
+    res.emote "makes a freshly baked pie"
+  });
+
+
 };
