@@ -4,6 +4,10 @@ module.exports = function (robot) {
     res.send("Yeah, bring it on!:muscle:");
   });
 
+  robot.hear(/hello/i, function (res) {
+    res.send("Do you even lift, bro.");
+  });
+
   robot.respond(/Let's do (.*)/i, function (res) {
     var exerciseType = res.match[1];
 
@@ -53,4 +57,19 @@ module.exports = function (robot) {
     res.emote("Shake it shake it!");
   });
 
+  var exercises = ['run', 'squat', 'benchpress', 'deadlift', 'leg extension', 'leg curl', 'arm curl', 'shoulder press']
+  robot.respond(/recommend/i, function(res){
+    res.send(res.random(exercises));
+  });
+
+  robot.enter(function(res){
+    res.send("Welcome "  + (res.message.user.name) + "! Enoy!");
+  });
+  robot.leave(function(res){
+    res.send("Bye "  + (res.message.user.name) + ". So sad to see you off.");
+  });
+
+  robot.topic(function(res){
+    res.send("#{res.message.text}? That's great!!'");
+  });
 };
